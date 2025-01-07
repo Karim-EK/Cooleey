@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+    require "db.php";
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -8,11 +10,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="container-fluid">
-    <div class="row" style="height: 20px; background-color: rgb(51, 51, 204);"></div>
+    <div class="row mb-3" style="height: 20px; background-color: rgb(51, 51, 204);"></div>
     <div class="row align-items-center justify-content-between text-center">
         <div class="col-sm-2">
-            <form action="#" class="input-group input-group-sm">
-                <input type="search" class="form-control" id="search" placeholder="Products">
+            <form action="search.php" method="get" class="input-group input-group-sm">
+                <input type="search" class="form-control" name="search" placeholder="Products">
                 <button type="submit" class="input-group-text" href="#" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
@@ -21,7 +23,7 @@
             </form>
         </div>
         <div class="col-sm-8">
-                <a href="index.html"><img class="img-fluid" src="Img/logo.png" alt="" style="width: 35%;"></a>
+                <a href="index.php"><img class="img-fluid" src="Img/logo.png" alt="" style="width: 35%;"></a>
         </div>
         <div class="col-sm-2">
             <form action="#" class="d-flex">
@@ -40,48 +42,117 @@
         </button>
         <div class="collapse navbar-collapse text-center justify-content-center align-items-center fs-5" style="height: 75px;" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="#">Our History</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Our Philosophy</a></li>
+                <li class="nav-item"><a class="nav-link" href="history.html">Our History</a></li>
+                <li class="nav-item"><a class="nav-link" href="philosophy.html">Our Philosophy</a></li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="productsDropdown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
                     <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                        <li><a class="dropdown-item" href="#">High-end Efficacy</a></li>
-                        <li><a class="dropdown-item" href="#">Daily Home Use</a></li>
-                        <li><a class="dropdown-item" href="#">Beauty Salon Products</a></li>
+                        <li><a class="dropdown-item" href="highEnd.php">High-end Efficacy</a></li>
+                        <li><a class="dropdown-item" href="dailyHome.php">Daily Home Use</a></li>
+                        <li><a class="dropdown-item" href="medicalProducts.php">Beauty Salon Products</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="#">Facial Treatment</a></li>
-                        <li><a class="dropdown-item" href="#">Eye-care</a></li>
+                        <li><a class="dropdown-item" href="facialTreat.html">Facial Treatment</a></li>
+                        <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
             </ul>
         </div>
     </nav>
+
     <div class="row">
-        <div class="col-12 p-0">
-            <img class="img-fluid" src="Img/home.jpg">
-        </div>
+        <h2>"Check out our High-end products, thinked to have long lasting beneficial effects for years on your skin"</h2>
     </div>
-    <div class="row mt-1">
-        <div class="col-12 p-0 position-relative">
-            <img class="img-fluid" src="Img/Nursing6.jpg" alt="Image">
-            <div class="container position-absolute text-center" style="top: 72%; left: 50%; transform: translate(-50%, -28%);">
-                <span class="text-light fs-1">Treatment Experience</span><br>
-                <a href="#" class="btn btn-outline-light" style="text-decoration: none;">
-                    Discover More
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    <!--slideshow hystory/philosophy here or random link to one of each-->
-    <!--top n products row here-->
-    
-    <footer class="row row-cols-4 pt-2 justify-content-around" style= "background: rgb(224, 224, 235);">
+
+    <?php
+        // Query per il conteggio dei prodotti
+        $number_of_products_query = "SELECT COUNT(*) AS total FROM Products WHERE Category = 'High-end Efficacy'";
+        $row = $conn->query($number_of_products_query)->fetch_assoc();
+        $number_of_products = $row['total'];
+
+        // Calcolo del numero di righe necessarie
+        $rows_needed = ceil($number_of_products / 4);
+        $extra_row = $number_of_products % 4;
+
+        // Query per recuperare i nomi e i file dei prodotti
+        $names_of_products_query = "SELECT ProductName, FileName, ProductID FROM Products WHERE Category = 'High-end Efficacy'";
+        $result = $conn->query($names_of_products_query);
+
+        // Inizializziamo gli array per nomi e immagini
+        $names_of_products = [];
+        $images_of_products = [];
+
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $names_of_products[] = $row['ProductName'];
+                $images_of_products[] = $row['FileName'];
+                $ids_of_products[] = $row['ProductID'];
+            }
+        }
+
+        // Creazione della griglia HTML
+        echo "<div class='container-fluid'>";
+        $index = 0;
+
+        // Creazione delle righe complete
+        for ($i = 0; $i < $rows_needed; $i++) {
+            // Riga per le immagini
+            echo "<div class='row text-center mt-2'>";
+            for ($j = 0; $j < 4; $j++) {
+                if (isset($images_of_products[$index])) {
+                    echo "<div class='col-sm-3 border border-bottom-0'>";
+                    echo "<a href='product.php?id={$ids_of_products[$index]}'><img src='Img/Products/{$images_of_products[$index]}' class='img-fluid' style='max-height: 300px'></a>";
+                    echo "</div>";
+                }
+                $index++;
+            }
+            echo "</div>";
+
+            // Riga per i nomi
+            echo "<div class='row text-center'>";
+            for ($j = 0; $j < 4; $j++) {
+                if (isset($names_of_products[$index - 4 + $j])) {
+                    echo "<div class='col-sm-3 border border-top-0'>";
+                    echo "<a href='product.php?id={$ids_of_products[$index - 4 + $j]}'>{$names_of_products[$index - 4 + $j]}</a>";
+                    echo "</div>";
+                }
+            }
+            echo "</div>";
+        }
+
+        // Creazione dell'ultima riga per i prodotti rimanenti
+        if ($extra_row > 0) {
+            // Riga per le immagini
+            echo "<div class='row text-center'>";
+            for ($j = 0; $j < $extra_row; $j++) {
+                if (isset($images_of_products[$index])) {
+                    echo "<div class='col-sm-3 border border-bottom-0'>";
+                    echo "<a href='product.php?id={$ids_of_products[$index]}'><img src='Img/Products/{$images_of_products[$index]}' class='img-fluid' style='max-height: 300px'></a>";
+                    echo "</div>";
+                }
+                $index++;
+            }
+            echo "</div>";
+
+            // Riga per i nomi
+            echo "<div class='row text-center'>";
+            for ($j = 0; $j < $extra_row; $j++) {
+                if (isset($names_of_products[$index - $extra_row + $j])) {
+                    echo "<div class='col-sm-3 border border-top-0'>";
+                    echo "<a href='product.php?id={$ids_of_products[$index - $extra_row + $j]}'>{$names_of_products[$index - $extra_row + $j]}</a>";
+                    echo "</div>";
+                }
+            }
+            echo "</div>";
+        }
+        echo "</div>";
+    ?>
+
+    <footer class="row row-cols-4 pt-2 justify-content-around mt-2" style= "background: rgb(224, 224, 235);">
         <div class="col-5 flex-column">
             <img class="img-fluid w-25" src="Img/logo.png"></img>
             <div class="fs-6">Global Cosmeceutical Technology GmbH</div>
@@ -106,9 +177,9 @@
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">Skin Care Section</div>
-            <a class="fs-6" href="#">High-end Efficacy</a><br>
-            <a class="fs-6" href="#">Daily Home Use</a><br>
-            <a class="fs-6" href="#">Beauty Salon Products</a><br>
+            <a class="fs-6" href="highEnd.html">High-end Efficacy</a><br>
+            <a class="fs-6" href="dailyHome.php">Daily Home Use</a><br>
+            <a class="fs-6" href="medicalProducts.php">Beauty Salon Products</a><br>
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">About Us</div>

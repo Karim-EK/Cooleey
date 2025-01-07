@@ -1,3 +1,6 @@
+<?php
+    require "db.php";
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -60,64 +63,92 @@
             </ul>
         </div>
     </nav>
-    <div class="container text-center mb-4">
-        <h1>Our History</h1>
-    </div>
-    <div class="container-fluid d-flex justify-content-center p-0 mb-2" style="max-width: 90%;">
-        <h5>
-           <span style="font-weight: bolder; line-height: 1.8;">Origin in 1984 and the concept of “firming skin and reducing wrinkles”</span><br>
-            In 1984, a team of engineers from Global Cosmeceutical Technology GmbH proposed to transform the results of cellular anti-aging into actual anti-aging skincare effects, namely “firming skin and reducing wrinkles”. <br>
-            This concept was inspired by the cell theory of the famous German scientist Virchow. <br> 
-            As a result, they developed the first medical-grade skincare product with “firming skin and reducing wrinkles” as the core and created Cooleey.
-        </h5>
-    </div>
-    <div class="img-fluid d-flex justify-content-center">
-        <img class ="mb-5" src="Img/A1-lab.jpg" alt="" style="max-width: 90%;">
-    </div>
-    <div class="container-fluid d-flex justify-content-center p-0 mb-2" style="max-width: 90%;">
-        <h5>
-            <span style="font-weight: bolder; line-height: 1.8;">High-end positioning of Cooleey</span> <br>
-            Cooleey has achieved remarkable results in the industry by developing the two complexes, SCF (Stem Cell Factor) complex and BSAge complex, and applying them to cellular anti-aging cosmetics.  <br>
-            The SCF complex contains 8 stem cell extracts that are gradually upgraded over time, which can promote cell gene expression, increase cell activity, promote collagen regeneration and achieve anti-aging effects.  <br>
-            The BSAge complex combines 12 core scientific anti-aging ingredients, which can effectively fight against photoaging caused by external factors, and slow down oxidation and saccharification processes to restore cell vitality and achieve skin healing and regeneration. <br>
-        </h5>
-    </div>
-    <div class="img-fluid d-flex justify-content-center">
-        <img class ="mb-5" src="Img/A2-cell.jpg" alt="" style="max-width: 90%;">
-    </div>
-    <div class="container-fluid d-flex justify-content-center p-0 mb-2" style="max-width: 90%;">
-        <h5>
-            <span style="font-weight: bolder; line-height: 1.8;">Exclusive scientific research results SCF complex and BSAge complex</span><br>
-            In 1984, a team of engineers from Global Cosmeceutical Technology GmbH proposed to transform the results of cellular anti-aging into actual anti-aging skincare effects, namely “firming skin and reducing wrinkles”. <br>
-            This concept was inspired by the cell theory of the famous German scientist Virchow. <br> 
-            As a result, they developed the first medical-grade skincare product with “firming skin and reducing wrinkles” as the core and created Cooleey.
-        </h5>
-    </div>
-    <div class="img-fluid d-flex justify-content-center">
-        <div class="col-6">
-            <img class ="mb-5" src="Img/A3-vitro1.png" alt="" style="max-width: 90%;">
+    <?php
+        $id = $_GET['id'];
+        $query = $conn->query("SELECT * FROM products WHERE ProductID = $id");
+        $row = $query->fetch_assoc();
+    ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6 d-flex justify-content-center align-items-center">
+                <?php
+                    echo "<img style='height: 400px;' class='img-fluid' src='Img/Products/{$row['FileName']}' alt=''>"
+                ?>
+            </div>
+            <div class="col-sm-6 d-flex flex-column justify-content-around">
+                <div class="row">
+                    <h2 style="text-transform: capitalize;">
+                        <?php
+                            echo $row['ProductName'];
+                        ?>
+                    </h2>
+                </div>
+                <div class="row">
+                    <p style="font-weight: bold; border-bottom: 2px solid rgb(224, 224, 235);">
+                        <?php
+                            echo $row['Series'];
+                        ?>
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        <span style="font-style: italic;">Packaging Specification:</span>
+                        <?php
+                            echo $row['Packaging'];
+                        ?>
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        <span style="font-style: italic;">Skin types:</span>
+                        <?php
+                            echo $row['SkinTypes'];
+                        ?>
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        <span style="font-style: italic;">Core ingredients:</span>
+                        <?php
+                            echo $row['Ingredients'];
+                        ?>
+                    </p>
+                </div>
+                <div class="row">
+                    <p>
+                        <span style="font-style: italic;">Product efficacy:</span>
+                        <?php
+                            echo $row['ProductEfficacy'];
+                        ?>
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-            <img class ="mb-5" src="Img/A3-vitro2.png" alt="" style="max-width: 90%;">
+    </div>
+    <?php
+        if($row['Video'] != null){
+            echo '<div class="container-fluid mt-5">
+                    <video controls autoplay muted style="width: 100%;">
+                        <source src="Img/Products/videos/'.$row['Video'].'" type="video/mp4">
+                    </video>
+                </div>';
+        }
+    ?>
+    <div class="container-fluid mt-5">
+            <p>Similar Products:</p>
+        <?php
+            $query = $conn->query("SELECT FileName, ProductID FROM products WHERE Series = '{$row['Series']}' AND ProductID != $id OR Category = '{$row['Category']}' AND ProductID != $id LIMIT 7");
+            while($row = $query->fetch_assoc()){
+                $similar_products[] = $row;
+            }
+        ?>
+        <div class="d-flex justify-content-around">
+            <?php
+                foreach($similar_products as $product){
+                    echo "<a href='product.php?id={$product['ProductID']}'><img style='max-height: 150px;' class='img-fluid' src='Img/Products/{$product['FileName']}' alt=''></a>";
+                }
+            ?>
         </div>
-    </div>
-    <div class="container-fluid d-flex justify-content-center p-0 mb-2" style="max-width: 90%;">
-        <h5>
-            <span style="font-weight: bolder; line-height: 1.8;">Cooleey's mission</span><br>
-            To provide scientific and rigorous medical-grade cellular anti-aging skincare solutions to help users achieve healthier and younger skin with definite effects, and give them enough confidence to control their skin age and live their best lives.
-        </h5>
-    </div>
-    <div class="img-fluid d-flex justify-content-center">
-        <img class ="mb-5" src="Img/A4-expert.jpg" alt="" style="max-width: 90%;">
-    </div>
-    <div class="container-fluid d-flex justify-content-center p-0 mb-2" style="max-width: 90%;">
-        <h5>
-            <span style="font-weight: bolder; line-height: 1.8;">Cooleey's vision</span><br>
-            To become a leader in the field of skin cellular anti-aging for exquisite women, change consumers' perception of skincare and make it a pleasant experience where significant rejuvenation can be seen.
-        </h5>
-    </div>
-    <div class="img-fluid d-flex justify-content-center">
-        <img class ="mb-5" src="Img/A5-model.jpg" alt="" style="max-width: 90%;">
     </div>
     <footer class="row row-cols-4 pt-2 justify-content-around mt-2" style= "background: rgb(224, 224, 235);">
         <div class="col-5 flex-column">
