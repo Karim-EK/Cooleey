@@ -60,18 +60,29 @@
                         <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
             </ul>
         </div>
     </nav>
     <div class="row">
         <div class="col-12 p-0">
-            <img class="img-fluid" src="Img/home.jpg">
+            <img class="img-fluid" src="Img/home1.jpg">
         </div>
     </div>
     <div class="row mt-1">
         <div class="col-12 p-0 position-relative">
-            <img class="img-fluid" src="Img/Nursing6.jpg" alt="Image">
+            <img class="img-fluid" src="Img/home2.png" alt="Image">
+            <div class="container position-absolute text-center" style="top: 72%; left: 50%; transform: translate(-50%, -28%);">
+                <span class="text-light fs-1">Treatment Experience</span><br>
+                <a href="facialTreat.html" class="btn btn-outline-light" style="text-decoration: none;">
+                    Discover More
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-1">
+        <div class="col-12 p-0 position-relative">
+            <a href="philosophy.html"><img class="img-fluid" src="Img/home3.png" alt="Image"></a>
             <div class="container position-absolute text-center" style="top: 72%; left: 50%; transform: translate(-50%, -28%);">
                 <span class="text-light fs-1">Treatment Experience</span><br>
                 <a href="facialTreat.html" class="btn btn-outline-light" style="text-decoration: none;">
@@ -81,23 +92,28 @@
         </div>
     </div>
     
-    <!--slideshow hystory/philosophy here or random link to one of each-->
-    <?php
+    <?php /*
         $sql = "SELECT * FROM products WHERE ProductID = 6 OR ProductID = 14 OR ProductID = 3 OR ProductID = 7 OR ProductID = 1 OR ProductID = 13 OR ProductID = 21";
         $result = $conn->query($sql);
         while($row = $result->fetch_assoc()) {
             $top_products[] = $row;
-        }
+        }*/
     ?>
     <div class="container-fluid text-center my-5">
-        <h3 class="my-4">Our best products</h3>
+        <h3 class="my-4">Cooley's products</h3>
         <div class="d-flex justify-content-around">
-            <?php
+            <a href="product.php?id=1"><img src="Img/Products/dh-ws-cooleey-absolute-radiance-breakout-oil-home.png" alt=""> </a>
+            <a href="product.php?id=21"><img src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home2.png" alt=""> </a>
+            <a href="product.php?id=6"><img src="Img/Products/dh-aas-cooleey-absolute-radiance-revitalizing-essence-gel-home.png" alt="" style="height: 140px;"> </a>
+            <a href="product.php?id=13"><img src="Img/Products/dh-faws-cooleey-absolute-radiance-vitality-intensive-anti-aging-eye-cream-home.png" alt=""> </a>
+            <a href="product.php?id=21"><img src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home1.png" alt=""> </a>
+            <a href="product.php?id=26"><img src="Img/Products/mp-praws-cooleey-absolute-radiant-vitality-stabilizing-pre-essence-home.png" alt=""> </a>
+            <?php /*
             foreach($top_products as $product){
                 echo "
                     <a href = 'product.php?id={$product['ProductID']}'><img style='max-height: 250px;' class='img-fluid' src='Img/Products/{$product['FileName']}' alt=''></a>
                 ";
-            }
+            } */
             ?>
         </div>
     </div>
@@ -132,13 +148,13 @@
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">About Us</div>
-            <a class="fs-6" href="#">Our History</a><br>
-            <a class="fs-6" href="#">Our Philosophy</a><br>
+            <a class="fs-6" href="history.html">Our History</a><br>
+            <a class="fs-6" href="philosophy.html">Our Philosophy</a><br>
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">Costumer Service</div>
-            <a class="fs-6" href="#">Contact Us</a><br>
-            <a class="fs-6" href="#">Beauty Base</a><br>
+            <a class="fs-6" href="contacts.html">Contact Us</a><br>
+            <a class="fs-6" href="beautyBase.html">Beauty Base</a><br>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -59,99 +59,55 @@
                         <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="row">
-        <h2>"Check out our Medical products, our most professional selections"</h2>
+    <div class="container-fluid mb-5 mt-2" style="max-width: 80%;">
+        <div class="container-fuid d-flex align-items-center justify-content-center" style= "background: rgb(224, 224, 235); height: 50px;">
+            <h4>""Check out our Medical products, our most professional selections""</h4>
+        </div>
+        <?php
+            // Query per recuperare i prodotti
+            $products_query = "SELECT ProductName, FileName, ProductID FROM Products WHERE Category = 'Medical Products'";
+            $result = $conn->query($products_query);
+
+            // Verifica se ci sono prodotti
+            if (!$result || $result->num_rows === 0) {
+                echo "<div class='alert alert-info'>No products found.</div>";
+                return;
+            }
+
+            // Container con padding responsive
+            echo "<div class='container-fluid px-4 py-5'>";
+            echo "<div class='row g-4'>"; // g-4 aggiunge gap tra le cards
+
+            // Itera attraverso i prodotti
+            while ($product = $result->fetch_assoc()) {
+                echo "
+                <div class='col-12 col-sm-3'>
+                    <div class='shadow-sm border-0 h-100 d-flex flex-column'>
+                        <div class='d-flex justify-content-center'>
+                            <a href='product.php?id={$product['ProductID']}'>
+                                <img src='Img/Products/{$product['FileName']}'
+                                    class='img-fluid p-2'
+                                    alt='{$product['ProductName']}'
+                                    style='max-height: 300px;'>
+                            </a>
+                        </div>
+                        <div class='text-center mt-auto p-2'>
+                            <a href='product.php?id={$product['ProductID']}' 
+                            class='text-decoration-none'>
+                                <h5 class='mb-0'>{$product['ProductName']}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>";
+            }
+            echo "</div></div>"; // Chiude il container e la row
+        ?>
     </div>
-
-    <?php
-        // Query per il conteggio dei prodotti
-        $number_of_products_query = "SELECT COUNT(*) AS total FROM Products WHERE Category = 'Medical Products'";
-        $row = $conn->query($number_of_products_query)->fetch_assoc();
-        $number_of_products = $row['total'];
-
-        // Calcolo del numero di righe necessarie
-        $rows_needed = ceil($number_of_products / 4);
-        $extra_row = $number_of_products % 4;
-
-        // Query per recuperare i nomi e i file dei prodotti
-        $names_of_products_query = "SELECT ProductName, FileName, ProductID FROM Products WHERE Category = 'Medical Products'";
-        $result = $conn->query($names_of_products_query);
-
-        // Inizializziamo gli array per nomi e immagini
-        $names_of_products = [];
-        $images_of_products = [];
-
-        if ($result) {
-            while ($row = $result->fetch_assoc()) {
-                $names_of_products[] = $row['ProductName'];
-                $images_of_products[] = $row['FileName'];
-                $ids_of_products[] = $row['ProductID'];
-            }
-        }
-
-        // Creazione della griglia HTML
-        echo "<div class='container-fluid'>";
-        $index = 0;
-
-        // Creazione delle righe complete
-        for ($i = 0; $i < $rows_needed; $i++) {
-            // Riga per le immagini
-            echo "<div class='row text-center mt-2'>";
-            for ($j = 0; $j < 4; $j++) {
-                if (isset($images_of_products[$index])) {
-                    echo "<div class='col-sm-3 border border-bottom-0'>";
-                    echo "<a href='product.php?id={$ids_of_products[$index]}'><img src='Img/Products/{$images_of_products[$index]}' class='img-fluid' style='max-height: 300px'></a>";
-                    echo "</div>";
-                }
-                $index++;
-            }
-            echo "</div>";
-
-            // Riga per i nomi
-            echo "<div class='row text-center'>";
-            for ($j = 0; $j < 4; $j++) {
-                if (isset($names_of_products[$index - 4 + $j])) {
-                    echo "<div class='col-sm-3 border border-top-0'>";
-                    echo "<a href='product.php?id={$ids_of_products[$index - 4 + $j]}'>{$names_of_products[$index - 4 + $j]}</a>";
-                    echo "</div>";
-                }
-            }
-            echo "</div>";
-        }
-
-        // Creazione dell'ultima riga per i prodotti rimanenti
-        if ($extra_row > 0) {
-            // Riga per le immagini
-            echo "<div class='row text-center'>";
-            for ($j = 0; $j < $extra_row; $j++) {
-                if (isset($images_of_products[$index])) {
-                    echo "<div class='col-sm-3 border border-bottom-0'>";
-                    echo "<a href='product.php?id={$ids_of_products[$index]}'><img src='Img/Products/{$images_of_products[$index]}' class='img-fluid' style='max-height: 300px'></a>";
-                    echo "</div>";
-                }
-                $index++;
-            }
-            echo "</div>";
-
-            // Riga per i nomi
-            echo "<div class='row text-center'>";
-            for ($j = 0; $j < $extra_row; $j++) {
-                if (isset($names_of_products[$index - $extra_row + $j])) {
-                    echo "<div class='col-sm-3 border border-top-0'>";
-                    echo "<a href='product.php?id={$ids_of_products[$index - $extra_row + $j]}'>{$names_of_products[$index - $extra_row + $j]}</a>";
-                    echo "</div>";
-                }
-            }
-            echo "</div>";
-        }
-        echo "</div>";
-    ?>
-
 
     <footer class="row row-cols-4 pt-2 justify-content-around mt-2" style= "background: rgb(224, 224, 235);">
         <div class="col-5 flex-column">
@@ -184,13 +140,13 @@
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">About Us</div>
-            <a class="fs-6" href="#">Our History</a><br>
-            <a class="fs-6" href="#">Our Philosophy</a><br>
+            <a class="fs-6" href="history.html">Our History</a><br>
+            <a class="fs-6" href="philosophy.html">Our Philosophy</a><br>
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">Costumer Service</div>
-            <a class="fs-6" href="#">Contact Us</a><br>
-            <a class="fs-6" href="#">Beauty Base</a><br>
+            <a class="fs-6" href="contacts.html">Contact Us</a><br>
+            <a class="fs-6" href="beautyBase.html">Beauty Base</a><br>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

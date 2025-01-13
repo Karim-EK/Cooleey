@@ -59,7 +59,7 @@
                         <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#">Contacts</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
             </ul>
         </div>
     </nav>
@@ -121,13 +121,13 @@
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">About Us</div>
-            <a class="fs-6" href="#">Our History</a><br>
-            <a class="fs-6" href="#">Our Philosophy</a><br>
+            <a class="fs-6" href="history.html">Our History</a><br>
+            <a class="fs-6" href="philosophy.html">Our Philosophy</a><br>
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">Costumer Service</div>
-            <a class="fs-6" href="#">Contact Us</a><br>
-            <a class="fs-6" href="#">Beauty Base</a><br>
+            <a class="fs-6" href="contacts.html">Contact Us</a><br>
+            <a class="fs-6" href="beautyBase.html">Beauty Base</a><br>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
