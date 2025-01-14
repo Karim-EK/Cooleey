@@ -134,7 +134,7 @@
                 </div>';
         }
     ?>
-    <div class="container-fluid mt-5">
+    <div class="container-fluid my-5">
             <p>Similar Products:</p>
         <?php
             $query = $conn->query("SELECT FileName, ProductID FROM products WHERE Series = '{$row['Series']}' AND ProductID != $id OR Category = '{$row['Category']}' AND ProductID != $id LIMIT 7");

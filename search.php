@@ -63,32 +63,34 @@
             </ul>
         </div>
     </nav>
-    <div class="mh-100 flex-grow-1">
-        <?php
-            $search = $_GET['search'];
-            $sql = "SELECT * FROM products WHERE ProductName LIKE '%$search%'";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                echo "<div class='row'>";
-                while ($row = $result->fetch_assoc()) {
-                    echo '
-                        <div class="col-sm-3 text-center">
-                            <a href = "product.php?id='.$row['ProductID'].'"><img style="max-height: 300px; width: auto;" src="Img/Products/' . $row['FileName'] . '" class="card-img-top" alt="' . $row['ProductName'] . '"></a>
-                            <p class="text-center">' . $row["ProductName"] . '</p>
-                        </div>
-                    ';
-                }
-                echo "</div>";
-            }else {
-                echo '<div class="col">
-                        <div class="card m-2">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">No products found</h5>
+    <div class="container-fluid" style="max-width: 85%;">
+        <div class="mh-100 flex-grow-1 my-5">
+            <?php
+                $search = $_GET['search'];
+                $sql = "SELECT * FROM products WHERE ProductName LIKE '%$search%'";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    echo "<div class='row'>";
+                    while ($row = $result->fetch_assoc()) {
+                        echo '
+                            <div class="col-sm-3 shadow-sm border-1 text-center">
+                                <a href = "product.php?id='.$row['ProductID'].'"><img style="max-height: 300px; width: auto;" src="Img/Products/' . $row['FileName'] . '" class="card-img-top p-2" alt="' . $row['ProductName'] . '"></a>
+                                <p class="text-center">' . $row["ProductName"] . '</p>
                             </div>
-                        </div>
-                    </div>';
-            }
-        ?>
+                        ';
+                    }
+                    echo "</div>";
+                }else {
+                    echo '<div class="col">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">No products found</h5>
+                                </div>
+                            </div>
+                        </div>';
+                }
+            ?>
+        </div>
     </div>
     <footer class="row row-cols-4 pt-2 justify-content-around mt-2" style= "background: rgb(224, 224, 235);">
         <div class="col-5 flex-column">

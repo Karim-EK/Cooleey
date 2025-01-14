@@ -73,7 +73,8 @@
         <div class="col-12 p-0 position-relative">
             <img class="img-fluid" src="Img/home2.png" alt="Image">
             <div class="container position-absolute text-center" style="top: 72%; left: 50%; transform: translate(-50%, -28%);">
-                <span class="text-light fs-1">Treatment Experience</span><br>
+                <span class="text-light fs-1">Treatment Experience</span><br><br>
+                <span class="text-light fs-5">Pamper yourself with our personalized high-end SPA treatment</span><br><br><br>
                 <a href="facialTreat.html" class="btn btn-outline-light" style="text-decoration: none;">
                     Discover More
                 </a>
@@ -83,11 +84,9 @@
     <div class="row mt-1">
         <div class="col-12 p-0 position-relative">
             <a href="philosophy.html"><img class="img-fluid" src="Img/home3.png" alt="Image"></a>
-            <div class="container position-absolute text-center" style="top: 72%; left: 50%; transform: translate(-50%, -28%);">
-                <span class="text-light fs-1">Treatment Experience</span><br>
-                <a href="facialTreat.html" class="btn btn-outline-light" style="text-decoration: none;">
-                    Discover More
-                </a>
+            <div class="container position-absolute" style="top: 15%; left: 1%;">
+                <span class="text-light fs-2">FIGHT AGAINST AGING WITH A SCIENTIFIC</span><br>
+                <span class="text-light fs-2">AND RIGORUS ATTITUDE</span><br>
             </div>
         </div>
     </div>
@@ -101,13 +100,13 @@
     ?>
     <div class="container-fluid text-center my-5">
         <h3 class="my-4">Cooley's products</h3>
-        <div class="d-flex justify-content-around">
-            <a href="product.php?id=1"><img src="Img/Products/dh-ws-cooleey-absolute-radiance-breakout-oil-home.png" alt=""> </a>
-            <a href="product.php?id=21"><img src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home2.png" alt=""> </a>
-            <a href="product.php?id=6"><img src="Img/Products/dh-aas-cooleey-absolute-radiance-revitalizing-essence-gel-home.png" alt="" style="height: 140px;"> </a>
-            <a href="product.php?id=13"><img src="Img/Products/dh-faws-cooleey-absolute-radiance-vitality-intensive-anti-aging-eye-cream-home.png" alt=""> </a>
-            <a href="product.php?id=21"><img src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home1.png" alt=""> </a>
-            <a href="product.php?id=26"><img src="Img/Products/mp-praws-cooleey-absolute-radiant-vitality-stabilizing-pre-essence-home.png" alt=""> </a>
+        <div class="d-flex justify-content-between">
+            <a href="product.php?id=1"><img class="img-fluid" src="Img/Products/dh-ws-cooleey-absolute-radiance-breakout-oil-home.png" alt=""> </a>
+            <a href="product.php?id=21"><img class="img-fluid" src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home.png" alt=""> </a>
+            <a href="product.php?id=6"><img class="img-fluid" src="Img/Products/dh-aas-cooleey-absolute-radiance-revitalizing-essence-gel-home.png" alt="" style=""> </a>
+            <a href="product.php?id=13"><img class="img-fluid" src="Img/Products/dh-faws-cooleey-absolute-radiance-vitality-intensive-anti-aging-eye-cream-home.png" alt=""> </a>
+            <a href="product.php?id=3"><img class="img-fluid" src="Img/Products/dh-faws-cooleey-absolute-radiance-vitality-essence-home.PNG" alt=""> </a>
+            <a href="product.php?id=26"><img class="img-fluid" src="Img/Products/mp-praws-cooleey-absolute-radiant-vitality-stabilizing-pre-essence-home.png" alt=""> </a>
             <?php /*
             foreach($top_products as $product){
                 echo "

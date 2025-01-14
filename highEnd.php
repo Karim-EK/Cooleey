@@ -64,7 +64,7 @@
         </div>
     </nav>
     
-    <div class="container-fluid mb-5 mt-2" style="max-width: 80%;">
+    <div class="container-fluid mb-5 mt-2" style="max-width: 85%;">
         <div class="container-fuid" >
             <h4 class="d-flex align-items-center justify-content-center" style="background: rgb(224, 224, 235); height: 50px">"Check out our High-end products, thinked to have long lasting beneficial effects for years on your skin"</h4>
         </div>
@@ -89,7 +89,8 @@
                 echo "
                 <div class='col-12 col-sm-3'>
                     <div class='shadow-sm border-0 h-100 d-flex flex-column'>
-                        <div class='d-flex justify-content-center'>
+                        <div class='d-flex justify-content-center align-items-center h-100'
+                            style='max-height: 300px;'>
                             <a href='product.php?id={$product['ProductID']}'>
                                 <img src='Img/Products/{$product['FileName']}'
                                     class='img-fluid p-2'
@@ -97,7 +98,7 @@
                                     style='max-height: 300px;'>
                             </a>
                         </div>
-                        <div class='text-center mt-auto p-2'>
+                        <div class='text-center mt-auto p-3' style= 'height = 30%;'>
                             <a href='product.php?id={$product['ProductID']}' 
                             class='text-decoration-none'>
                                 <h5 class='mb-0'>{$product['ProductName']}</h5>
