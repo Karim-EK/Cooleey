@@ -32,6 +32,7 @@
                     <option value="en">En</option>
                     <option value="ch">Ch</option>
                     <option value="de">De</option>
+                    <option value="it">It</option>
                 </select>
             </form>
         </div>
@@ -66,7 +67,7 @@
     
     <div class="container-fluid mb-5 mt-2" style="max-width: 85%;">
         <div class="container-fuid" >
-            <h4 class="d-flex align-items-center justify-content-center" style="background: rgb(224, 224, 235); height: 50px">"Check out our High-end products, thinked to have long lasting beneficial effects for years on your skin"</h4>
+            <h4 class="d-flex align-items-center justify-content-center" style="background: rgb(224, 224, 235); height: 50px">"Check out our High-end products, thought to have long lasting beneficial effects for years on your skin"</h4>
         </div>
 
         <?php
@@ -114,7 +115,7 @@
         <div class="col-5 flex-column">
             <img class="img-fluid w-25" src="Img/logo.png"></img>
             <div class="fs-6">Global Cosmeceutical Technology GmbH</div>
-            <div class="fs-6">info@cooleey-skincare-com.net</div>
+            <a class="fs-6 text-decoration-underline" href="mailto:info@cooleey-skincare-com.net" target="_blank">info@cooleey-skincare-com.net</a>
             <div class="d-inline-flex">
                 <a class="m-2" href="https://www.facebook.com" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -135,7 +136,7 @@
         </div>
         <div class="col-auto">
             <div class="fs-5 fw-bold">Skin Care Section</div>
-            <a class="fs-6" href="highEnd.html">High-end Efficacy</a><br>
+            <a class="fs-6" href="highEnd.php">High-end Efficacy</a><br>
             <a class="fs-6" href="dailyHome.php">Daily Home Use</a><br>
             <a class="fs-6" href="medicalProducts.php">Beauty Salon Products</a><br>
         </div>

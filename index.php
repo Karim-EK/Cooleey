@@ -33,6 +33,7 @@
                     <option value="en">En</option>
                     <option value="ch">Ch</option>
                     <option value="de">De</option>
+                    <option value="it">It</option>
                 </select>
             </form>
         </div>
@@ -56,7 +57,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="facialTreat.html">Facial Treatment</a></li>
+                        <li><a class="dropdown-item" href="facialTreat.html">Face-care</a></li>
                         <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
@@ -86,7 +87,7 @@
             <a href="philosophy.html"><img class="img-fluid" src="Img/home3.png" alt="Image"></a>
             <div class="container position-absolute" style="top: 15%; left: 1%;">
                 <span class="text-light fs-2">FIGHT AGAINST AGING WITH A SCIENTIFIC</span><br>
-                <span class="text-light fs-2">AND RIGORUS ATTITUDE</span><br>
+                <span class="text-light fs-2">AND RIGOROUS ATTITUDE</span><br>
             </div>
         </div>
     </div>
@@ -99,7 +100,7 @@
         }*/
     ?>
     <div class="container-fluid text-center my-5">
-        <h3 class="my-4">Cooley's products</h3>
+        <h3 class="my-4">Cooleey's products</h3>
         <div class="d-flex justify-content-between">
             <a href="product.php?id=1"><img class="img-fluid" src="Img/Products/dh-ws-cooleey-absolute-radiance-breakout-oil-home.png" alt=""> </a>
             <a href="product.php?id=21"><img class="img-fluid" src="Img/Products/he-aass-cooleey-absolute-double-serum-concentrated-infusion-home.png" alt=""> </a>
@@ -120,7 +121,7 @@
         <div class="col-5 flex-column">
             <img class="img-fluid w-25" src="Img/logo.png"></img>
             <div class="fs-6">Global Cosmeceutical Technology GmbH</div>
-            <div class="fs-6">info@cooleey-skincare-com.net</div>
+            <a class="fs-6 text-decoration-underline" href="mailto:info@cooleey-skincare-com.net" target="_blank">info@cooleey-skincare-com.net</a>
             <div class="d-inline-flex">
                 <a class="m-2" href="https://www.facebook.com" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
@@ -151,7 +152,7 @@
             <a class="fs-6" href="philosophy.html">Our Philosophy</a><br>
         </div>
         <div class="col-auto">
-            <div class="fs-5 fw-bold">Costumer Service</div>
+            <div class="fs-5 fw-bold">Custumer Service</div>
             <a class="fs-6" href="contacts.html">Contact Us</a><br>
             <a class="fs-6" href="beautyBase.html">Beauty Base</a><br>
         </div>
