@@ -56,7 +56,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                     <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="facialTreat.html">Facial Treatment</a></li>
+                        <li><a class="dropdown-item" href="facialTreat.html">Face-care</a></li>
                         <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
                     </ul>
                 </li>
