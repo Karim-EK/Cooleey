@@ -2,9 +2,9 @@ body {
     font-family: 'Helvetica', 'Avenir', 'Calibri', Arial, sans-serif;
 }
 
-/*h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', 'Libre Baskerville', Georgia, serif;
-}*/
+h1, h2, h3, h4, h5, h6, a, span, p {
+    margin-top: 1em;
+}
 
 /*a, span, p {
     font-size: 1vw;
@@ -13,6 +13,10 @@ body {
     padding: 5px;
 }*/
 
+p {
+    max-width: 75ch;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -20,4 +24,12 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.categories {
+    line-height: 2em;
 }

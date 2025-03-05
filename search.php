@@ -64,7 +64,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container-fluid" style="max-width: 85%;">
+    <div class="container-fluid" style="max-width: 90%;">
         <div class="mh-100 flex-grow-1 my-5">
             <?php
                 $search = $_GET['search'];

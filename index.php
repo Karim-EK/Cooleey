@@ -152,7 +152,7 @@
             <a class="fs-6" href="philosophy.html">Our Philosophy</a><br>
         </div>
         <div class="col-auto">
-            <div class="fs-5 fw-bold">Custumer Service</div>
+            <div class="fs-5 fw-bold">Costumer Service</div>
             <a class="fs-6" href="contacts.html">Contact Us</a><br>
             <a class="fs-6" href="beautyBase.html">Beauty Base</a><br>
         </div>

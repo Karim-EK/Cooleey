@@ -65,7 +65,7 @@
         </div>
     </nav>
     
-    <div class="container-fluid mb-5 mt-2" style="max-width: 85%;">
+    <div class="container-fluid mb-5 mt-2" style="max-width: 90%;">
         <div class="container-fuid" >
             <h4 class="d-flex align-items-center justify-content-center" style="background: rgb(224, 224, 235); height: 50px">"Check out our High-end products, thought to have long lasting beneficial effects for years on your skin"</h4>
         </div>

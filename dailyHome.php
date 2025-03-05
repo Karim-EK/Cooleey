@@ -65,7 +65,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid mb-5 mt-2" style="max-width: 85%;">
+    <div class="container-fluid mb-5 mt-2" style="max-width: 90%;">
         <div class="container-fuid d-flex align-items-center justify-content-center" style= "background: rgb(224, 224, 235); height: 50px;">
             <h4>"Check out our Daily Home products, the perfect solution for every-day use"</h4>
         </div>
