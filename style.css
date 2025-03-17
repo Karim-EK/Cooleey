@@ -4,14 +4,8 @@ body {
 
 h1, h2, h3, h4, h5, h6, a, span, p {
     margin-top: 1em;
+    margin-bottom: 1em;
 }
-
-/*a, span, p {
-    font-size: 1vw;
-    font-weight: lighter;
-    line-height: 1.6;
-    padding: 5px;
-}*/
 
 p {
     max-width: 75ch;
@@ -32,4 +26,26 @@ a:hover {
 
 .categories {
     line-height: 2em;
+}
+
+@media (max-width: 1536px) {
+    .categories{
+        font-size: 0.80rem;
+        line-height: 1.80em;
+    }
+    .categories_titles {
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 1200px) {
+    .categories{
+        font-size: 0.70rem;
+        line-height: 1.60em;
+    }
+    .categories_titles {
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
 }
