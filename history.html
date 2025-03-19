@@ -9,58 +9,65 @@
 <body class="container-fluid">
     <div class="row mb-3" style="height: 20px; background-color: rgb(51, 51, 204);"></div>
     <div class="row align-items-center justify-content-between text-center">
-        <div class="col-sm-2">
-            <form action="search.php" method="get" class="input-group input-group-sm">
-                <input type="search" class="form-control" name="search" placeholder="Products">
-                <button type="submit" class="input-group-text" href="#" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                    </svg>
-                </button>
-            </form>
-        </div>
-        <div class="col-sm-8">
+        <div class="col-sm-12">
                 <a href="index.php"><img class="img-fluid" src="Img/logo.png" alt="" style="width: 35%;"></a>
         </div>
-        <div class="col-sm-2">
-            <form action="#" class="d-flex">
-                <label for="lenguage"></label>
-                <select id="lenguage" class="form-select">
-                    <option value="en">En</option>
-                    <option value="ch">Ch</option>
-                    <option value="de">De</option>
-                    <option value="it">It</option>
-                </select>
-            </form>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="history.html">Our History</a></li>
+            <li><a href="philosophy.html">Our Philosophy</a></li>
+            <li class="dropdown">
+            <button class="dropdown-btn"><span>Products</span>▾</button>
+                <ul class="dropdown-content">
+                    <li><a href="highEnd.php">High-end Efficacy</a></li>
+                    <li><a href="dailyHome.php">Daily Home Use</a></li>
+                    <li><a href="medicalProducts.php">Beauty Salon Products</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <button class="dropdown-btn"><span>Services</span>▾</button>
+                <ul class="dropdown-content">
+                    <li><a href="facialTreat.html">Face-care</a></li>
+                    <li><a href="eyeCare.html">Eye-care</a></li>
+                </ul>
+            </li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><button type="button" data-bs-toggle="modal" data-bs-target="#myModal" style="all: unset; cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg>
+              </button>
+            </li>
+            <li>EN</li>
+        </ul>
+    </nav>
+    <!--MODAL-->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Search for products</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body mb-3">
+                <form action="search.php" method="get" class="input-group input-group-sm">
+                    <input type="search" class="form-control" name="search" placeholder="Products">
+                    <button type="submit" class="input-group-text" href="#" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+          </div>
         </div>
     </div>
-    <nav class="navbar sticky-top navbar-expand-sm" style="background-color: white;">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse text-center justify-content-center align-items-center fs-5" style="height: 75px;" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="history.html">Our History</a></li>
-                <li class="nav-item"><a class="nav-link" href="philosophy.html">Our Philosophy</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="productsDropdown" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
-                    <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                        <li><a class="dropdown-item" href="highEnd.php">High-end Efficacy</a></li>
-                        <li><a class="dropdown-item" href="dailyHome.php">Daily Home Use</a></li>
-                        <li><a class="dropdown-item" href="medicalProducts.php">Beauty Salon Products</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="servicesDropdown" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
-                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="facialTreat.html">Face-care</a></li>
-                        <li><a class="dropdown-item" href="eyeCare.html">Eye-care</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
-            </ul>
-        </div>
-    </nav>
+
     <div class="container text-center my-4">
         <h1>History of Cooleey in Germany</h1>
     </div>
@@ -178,5 +185,6 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>

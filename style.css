@@ -2,14 +2,35 @@ body {
     font-family: 'Helvetica', 'Avenir', 'Calibri', Arial, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, a, span, p {
+h1, h2, h3, h4, h5, h6 {
     margin-top: 1em;
     margin-bottom: 1em;
 }
 
-p {
-    max-width: 75ch;
+nav {
+    margin: 1em;
+    background-color: white;
+    font-size: 1.5rem;
+    position: sticky;
+    top: 0px;
+    color: #a6a3a2;
 }
+nav ul li button {
+    color: #a6a3a2;
+}
+
+nav ul {
+    height: 4em;
+    display: flex;
+    width: 100%;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* p {
+    max-width: 75ch;
+} */
 
 a {
     text-decoration: none;
@@ -20,18 +41,78 @@ a:hover {
     text-decoration: underline;
 }
 
+.justified {
+    text-align: justify;
+    text-justify: auto;
+}
+
 .bold {
     font-weight: bold;
+}
+
+.fitting {
+    object-fit: cover;
+    height: 100%;
+}
+
+.fluid{
+    width: 100%;
+    height: auto;
 }
 
 .categories {
     line-height: 2em;
 }
 
+/* Contenitore del dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Bottone principale */
+.dropdown-btn {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+.dropdown-btn span:hover {
+    text-decoration: underline;
+}
+
+/* Contenuto nascosto inizialmente */
+.dropdown-content {
+    padding: 0;
+    margin: 0;
+    display: none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid hsl(0, 0%, 30%);
+    white-space: nowrap;
+    width: max-content;
+    height: auto;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Stile dei link nel dropdown */
+.dropdown-content a {
+    padding: 0.1em;
+    color: #a6a3a2;
+    display: block;
+}
+
+.show {
+    display: block !important;
+}
+
 @media (max-width: 1536px) {
+    
     .categories{
         font-size: 0.80rem;
-        line-height: 1.80em;
+        margin-top: 0.8em;
+        margin-bottom: 0.8em !important;
     }
     .categories_titles {
         font-size: 1.3rem;
@@ -40,9 +121,13 @@ a:hover {
 }
 
 @media (max-width: 1200px) {
+    nav{
+        font-size: 1rem; 
+    }
     .categories{
         font-size: 0.70rem;
-        line-height: 1.60em;
+        margin-top: 0.7em;
+        margin-bottom: 0.7em !important;
     }
     .categories_titles {
         font-size: 1.1rem;
